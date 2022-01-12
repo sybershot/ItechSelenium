@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from page_objects.yandex_search_page import YandexSearch
+import tests.yandex_tests as ya_tests
+
 
 PYTHON_KEYS = "python"
 JAVA_KEYS = "java"
@@ -12,10 +14,8 @@ if __name__ == '__main__':
 
     try:
         yandex_po = YandexSearch(DRIVER)
-        yandex_po.search(PYTHON_KEYS)
-        yandex_po.validate(PYTHON_KEYS)
-        yandex_po.search(JAVA_KEYS)
-        yandex_po.validate(JAVA_KEYS)
+        ya_tests.search_and_validate(yandex_po, PYTHON_KEYS)
+        ya_tests.search_and_validate(yandex_po, JAVA_KEYS)
 
     finally:
         DRIVER.close()
