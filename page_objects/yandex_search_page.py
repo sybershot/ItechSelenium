@@ -23,7 +23,7 @@ class YandexSearchPage(BasePage):
         search_query.send_keys(Keys.ENTER)
 
     def iterate_results(self, expected_key):
-        results: List[WebElement] = self.driver.find_elements(*self.search_query_locator)
+        results: List[WebElement] = self.driver.find_elements(*self.search_results_locator)
         for element in results:
             ads_attrib = element.find_elements(*self.ad_locator)
             if ads_attrib:
