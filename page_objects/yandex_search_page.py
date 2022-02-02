@@ -11,7 +11,7 @@ class YandexSearchPage(BasePage):
     pager_locator = By.CLASS_NAME, 'pager__item_kind_next'
     search_query_locator = By.XPATH, '//*[@id="text"]'
     search_results_locator = By.CLASS_NAME, "serp-item"
-    ad_locator = By.XPATH, ".//span[contains(text(), 'Реклама')]"
+    ad_locator = By.CLASS_NAME, "i-bem"
 
     def wait_for_search_results(self, timeout=consts.TIMEOUT):
         self.wait_for_element(self.pager_locator)
